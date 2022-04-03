@@ -1,10 +1,7 @@
 package me.vojta.agilusesmockcontroller.presentation
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -13,9 +10,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import me.vojta.agilusesmockcontroller.data.Robot
+import me.vojta.agilusesmockcontroller.domain.DomainFacade
 
 @Composable
-fun RobotControl(robot: Robot) {
+fun RobotControl(domain: DomainFacade, robot: Robot) {
     val activeOperation = remember { mutableStateOf<String?>(null) }
 
     robot.onActiveOperationChange = {
@@ -43,8 +41,13 @@ fun RobotControl(robot: Robot) {
             }
         }
         Column {
-            Button(onClick = {}, modifier = Modifier.padding(7.dp).requiredWidth(150.dp)) {
-                Text("Run Random")
+            Button(
+                onClick = {
+                if (activeOperation.value.isNullOrBlank()) domain.runRandom(robot) else domain.stopRandom(robot)
+            },
+                colors = ButtonDefaults.buttonColors(backgroundColor = if (activeOperation.value.isNullOrBlank()) Color.Green else Color.Red),
+                modifier = Modifier.padding(7.dp).requiredWidth(150.dp).height(50.dp)) {
+                Text(if (activeOperation.value.isNullOrBlank()) "Run Random" else "Stop Random")
             }
         }
     }

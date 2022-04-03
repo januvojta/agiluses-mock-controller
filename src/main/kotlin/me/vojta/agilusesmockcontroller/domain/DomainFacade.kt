@@ -1,9 +1,6 @@
 package me.vojta.agilusesmockcontroller.domain
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import me.vojta.agilusesmockcontroller.common.Constants.ROBOT_01
 import me.vojta.agilusesmockcontroller.common.Constants.ROBOT_02
 import me.vojta.agilusesmockcontroller.common.Constants.ROBOT_03
@@ -15,14 +12,14 @@ class DomainFacade {
     val robots = listOf<Robot>(ROBOT_01, ROBOT_02, ROBOT_03)
     private val executor = Executor()
 
-    fun connect(endpoint: EndpointUrl, credentials: Credentials) {
-        GlobalScope.launch(Dispatchers.IO) {
+    suspend fun connect(endpoint: EndpointUrl, credentials: Credentials){
+        return withContext(Dispatchers.IO) {
             executor.connect(endpoint, credentials)
         }
     }
 
-    fun disconnect() {
-        GlobalScope.launch(Dispatchers.IO) {
+    suspend fun disconnect(){
+        return withContext(Dispatchers.IO) {
             executor.disconnect()
         }
     }

@@ -13,7 +13,7 @@ fun RobotsControl(domain: DomainFacade) {
 
     Column(modifier = Modifier.width(684.dp)) {
         for (robot in domain.robots){
-            RobotControl(robot)
+            RobotControl(domain,robot)
         }
     }
 }
