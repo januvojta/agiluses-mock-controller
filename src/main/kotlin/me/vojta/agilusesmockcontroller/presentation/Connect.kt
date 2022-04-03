@@ -8,9 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import me.vojta.agilusesmockcontroller.domain.DomainFacade
 
 @Composable
-fun Connect() {
+fun Connect(domain: DomainFacade) {
 
     Row(modifier = Modifier.fillMaxWidth().padding(10.dp)) {
         Column(modifier = Modifier.width(500.dp)) {
