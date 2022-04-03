@@ -13,12 +13,12 @@ import androidx.compose.ui.unit.dp
 fun Connect() {
 
     Row(modifier = Modifier.fillMaxWidth().padding(10.dp)) {
-        Column() {
-            OutlinedTextField(value = "username", onValueChange = {})
-            OutlinedTextField(value = "password", onValueChange = {})
+        Column(modifier = Modifier.width(500.dp)) {
+            OutlinedTextField(value = "username", onValueChange = {},modifier = Modifier.fillMaxWidth())
+            OutlinedTextField(value = "password", onValueChange = {},modifier = Modifier.fillMaxWidth())
         }
         Column(modifier = Modifier.align(Alignment.CenterVertically)) {
-            Button(onClick = {},modifier = Modifier.padding(5.dp)) {
+            Button(onClick = {},modifier = Modifier.padding(7.dp).requiredHeight(120.dp).requiredWidth(100.dp)) {
                 Text("Connect")
             }
         }

@@ -13,7 +13,7 @@ import me.vojta.agilusesmockcontroller.presentation.ui.theme.Connect
 fun main() = Window {
     AgilusControlAppTheme(darkTheme = false) {
         Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxWidth()){
-            Column {
+            Column() {
                 Connect()
                 RobotsControl()
             }
