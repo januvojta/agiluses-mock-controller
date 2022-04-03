@@ -11,7 +11,7 @@ import me.vojta.agilusesmockcontroller.domain.DomainFacade
 @Composable
 fun RobotsControl(domain: DomainFacade) {
 
-    Column(modifier = Modifier.width(634.dp)) {
+    Column(modifier = Modifier.width(684.dp)) {
         for (robot in domain.robots){
             RobotControl(robot)
         }

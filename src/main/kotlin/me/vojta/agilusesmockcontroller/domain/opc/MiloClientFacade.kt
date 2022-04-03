@@ -25,7 +25,7 @@ class MiloClientFacade : OpcClient {
     }
 
 
-    override fun connect(endpoint: EndpointUrl) {
+    override fun connect(endpoint: EndpointUrl, credentials: Credentials) {
         // TODO: Get safety requirements as an argument
         if (isConnected.get()) return;
 
@@ -36,7 +36,7 @@ class MiloClientFacade : OpcClient {
                     .setApplicationName(LocalizedText.english("random-opc-operation-client"))
                     .setApplicationUri("urn:cz:cvut:ciirc:client")
                     .setRequestTimeout(Unsigned.uint(5000))
-                    .setIdentityProvider(UsernameProvider("admin", "Montrac2020"))
+                    .setIdentityProvider(UsernameProvider(credentials.username, credentials.password))
                     .build()
             }
         )

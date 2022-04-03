@@ -1,6 +1,7 @@
 package me.vojta.agilusesmockcontroller.common
 
 import me.vojta.agilusesmockcontroller.data.*
+import me.vojta.agilusesmockcontroller.domain.opc.Endpoint
 
 object Constants {
     val PICK_PROGRAM = Program("Pick", 3)
@@ -35,4 +36,6 @@ object Constants {
         LEFT_STATION,
         TABLE_STATION
     ))
+//    val ENDPOINT = Endpoint("opc.tcp://10.35.130.2:4840")
+    val ENDPOINT = Endpoint("opc.tcp://localhost:12686")
 }
