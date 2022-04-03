@@ -13,6 +13,7 @@ version = "1.0"
 repositories {
     jcenter()
     mavenCentral()
+    google()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
