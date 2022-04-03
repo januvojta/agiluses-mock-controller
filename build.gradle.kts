@@ -20,6 +20,14 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
+
+    testImplementation("org.assertj:assertj-core:3.22.0")
+
+    implementation("org.slf4j:slf4j-simple:2.0.0-alpha7")
+
+    implementation("org.eclipse.milo:sdk-core:0.6.4")
+    implementation("org.eclipse.milo:sdk-client:0.6.4")
+    implementation("org.eclipse.milo:sdk-server:0.6.4")
 }
 
 tasks.test {
